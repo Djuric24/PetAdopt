@@ -1,0 +1,37 @@
+<div class="row">
+    <div class = "col-6">
+        <div class="row">
+            <div class="col-6">
+                <img src="{{pet.image}}" width="100%" height="400px">
+            </div>
+            <div class="col-6">
+                <h2>{{pet.name | titlecase}}</h2>
+                <p>Category: {{pet.category}}</p>
+                <p>Sex: {{pet.sex == 'f' ? 'Female' : 'Male'}}</p>
+                <p class="card-text">Size: {{pet.size_kg}}kg</p>
+                
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <p>{{pet.story}}</p>
+        </div>
+    </div>
+    <div class = "col-4">
+        <div class="row" class="text-center">
+            <h3>Adopt</h3>
+        </div>
+            <form [formGroup]="adoptionForm">
+                <div class="form-group">
+                  <label for="nameInput">Name</label>
+                  <input type="text" class="form-control" id="nameInput" name="adoptionName"  placeholder="Enter your full name" formControlName="name">
+                </div>
+                <div class="form-group">
+                  <label for="contactInput">Contact</label>
+                  <input type="text" class="form-control" id="contactInput" name="contact" placeholder="Enter your contact info (email/phone)"  formControlName="contact">
+                </div>
+                <button type="submit" class="btn btn-primary float-end mt-3" (click)="submitAdoption()">Submit request</button>
+            </form>
+
+    </div>
+</div>
